@@ -28,22 +28,25 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
-      },
+      },    
       {
-        test: /\.(sa|sc|c)ss$/, // styles files
+        test: /.\.module\.css$/, // Match CSS files with .module.css extension
         use: [
-          {
-            loader: "style-loader",
-          },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]--[hash:base64:5]',
-              },
-            },
-          },
-        ],
+                localIdentName: '[name]__[local]__[hash:base64:5]'
+              }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/, // Match regular CSS files
+        exclude: /\.module\.css$/, // Exclude CSS files with .module.css extension
+        use: ['style-loader', 'css-loader'] //, 
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
