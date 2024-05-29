@@ -1,6 +1,7 @@
 import React from "react";
 import { useAlertContext } from "../../contexts/AlertContext/AlertContext";
 import { useLoadingIconContext } from "../../contexts/LoadingIconContext/LoadingIconContext";
+import config from "../../../config";
 
 const Home = ({ }) => {
 
@@ -9,7 +10,7 @@ const Home = ({ }) => {
         
     return (
         <>
-            <button onClick={() => { alertContext({ isOpen: true, text: 'ניסוי' }) }}>ALERT</button>
+            <button onClick={() => { alertContext({ isOpen: true, text: JSON.stringify(config) }) }}>ALERT</button>
             <button onClick={() => { loadingIconContext(true) }}>LOADING</button>
         </>
     );
