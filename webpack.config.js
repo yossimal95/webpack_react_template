@@ -11,6 +11,7 @@ module.exports = {
       template: "src/index.html", // to import index.html file inside index.js
     }),
   ],
+  devtool: 'inline-source-map',
   devServer: {
     //port: 3330, // you can change the port
   },
